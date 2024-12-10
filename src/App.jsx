@@ -11,13 +11,7 @@ const Footer = lazy(() => import("./components/Footer"));
 
 function App() {
   return (
-    <Suspense
-      fallback={
-        <div className="flex items-center justify-center h-screen">
-          Loading...
-        </div>
-      }
-    >
+
       <main className="relative min-h-screen w-screen overflow-x-hidden">
         <NavBar />
         <Hero />
@@ -27,7 +21,7 @@ function App() {
         <Contact />
         <Footer />
       </main>
-    </Suspense>
+
   );
 }
 
