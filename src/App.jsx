@@ -1,22 +1,33 @@
-import About from "./components/About";
-import Hero from "./components/Hero";
-import NavBar from "./components/Navbar";
-import Features from "./components/Features";
-import Story from "./components/Story";
-import Contact from "./components/Contact";
-import Footer from "./components/Footer";
+import React, { Suspense, lazy } from "react";
+
+// Lazy loading components
+const About = lazy(() => import("./components/About"));
+const Hero = lazy(() => import("./components/Hero"));
+const NavBar = lazy(() => import("./components/Navbar"));
+const Features = lazy(() => import("./components/Features"));
+const Story = lazy(() => import("./components/Story"));
+const Contact = lazy(() => import("./components/Contact"));
+const Footer = lazy(() => import("./components/Footer"));
 
 function App() {
   return (
-    <main className="relative min-h-screen w-screen overflow-x-hidden">
-      <NavBar />
-      <Hero />
-      <About />
-      <Features />
-      <Story />
-      <Contact />
-      <Footer />
-    </main>
+    <Suspense
+      fallback={
+        <div className="flex items-center justify-center h-screen">
+          Loading...
+        </div>
+      }
+    >
+      <main className="relative min-h-screen w-screen overflow-x-hidden">
+        <NavBar />
+        <Hero />
+        <About />
+        <Features />
+        <Story />
+        <Contact />
+        <Footer />
+      </main>
+    </Suspense>
   );
 }
 
